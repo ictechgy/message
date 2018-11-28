@@ -1,39 +1,47 @@
+<!-- http://www.java2s.com/Tutorials/jQuery_Mobile/Example/Form/Create_login_form.htm 에서 소스를 가져왔다.-->
 <!DOCTYPE html>
 <html>
-<title>HTML Tutorial</title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <script type='text/javascript'
+            src='http://code.jquery.com/jquery-1.8.3.js'></script>
+    <script type="text/javascript"
+            src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.css">
+
+    <script src="index.js"></script>  <!-- 로그인하는 것은 내부와 통신하는 것이 아니라 외부와 통신하는 것이다. 호출하는 스크립트라 여기에 작성 -->
+
+    <!-- 채팅화면관련 css와 js -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+</head><!-- w  w w.j  av  a2 s  . c om-->
 <body>
-
-    <h1>헬로우 하이브리드 !</h1>
-    <p>테스트 화면</p>
-    <button onclick="javascript:showToast('Hello World !!')">  <!-- prefix값. 자바스크립트에 있는~를 실행시킨다. -->
-        토스트 테스트
-    </button>
-
-    <input type="text" id="inputMsg" placeholder="메시지입력"/>
-    <button onclick="sendMessage()">메시지 전송</button>
-
+<div id="page" data-role="page" data-theme="b">
+    <div data-role="content">
+        <h2>Login</h2>
+        <p align="right">
+            <a href="registration.html" id="showregistration">Don't have an
+                account? &rarr;</a>
+        </p>
+        <form method="post" id="loginForm">
+            <label for="password">Email:</label>
+            <input class="required" type="text" name="username" id="username"
+                   placeholder="username@server.com">
+            <label for="password">Password:</label>
+            <input class="required" type="password" name="password"
+                   id="password" placeholder="password">
+            <input type="button"
+                   value="Login" id="submitButton" onClick="handleLogin()">
+        </form>
+    </div>
+</div>
+<!-- 기능스크립트는 body안에 작성한다. -->
 <script>
-    function showToast(msg){
-        Hybrid.toast(msg);
-    }
-    function sendMessage(){
-        var msg = document.getElementById('inputMsg').value;
-        Hybrid.sendMessage(msg);
-    }
+    app.init();
 </script>
 
 </body>
 </html>
-
-
-<!--
-        모든 프로그래밍언어는 선언하는 Declaration 과 값을 정의하는 Definition 이 존재한다.
-        클래스정의시 Declare, 가공해서 써야한다. 인스턴스등 만들어야 함
-        함수정의시 Define 바로 쓸 수 있다.
-        html에서도 head부분이 선언부이며 body가 바디블록이다. 선언한 것에 대한 설명
-
-        이 html도 객체지향처럼 해야한다. 많은 클래스들을 하나의 클래스 내부 블록안에 모아서 구동속도를 빠르게 했듯이 이것도 그렇게 해야한다.
-        따라서 스크립트도 body안에 작성한다.
-
-        html - https://www.w3schools.com 참고
--->

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<title>HTML Tutorial</title>
+<head>  <!-- CDN 걸기.https://jquerymobile.com/download/ 이렇게 안하고 파일로 둘 수도 있다.-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <h1>헬로우 하이브리드 !</h1>
+    <p>테스트 화면</p>
+    <button onclick="javascript:showToast('Hello World !!')">
+        토스트 테스트
+    </button>
+
+    <input type="text" id="inputMsg" placeholder="메시지입력"/>
+    <button onclick="sendMessage()">메시지 전송</button>
+
+<script>
+    function showToast(msg){
+        Hybrid.toast(msg);
+    }
+    function sendMessage(){
+        var msg = document.getElementById('inputMsg').value;
+        Hybrid.sendMessage(msg);
+    }
+</script>
+
+</body>
+</html>
